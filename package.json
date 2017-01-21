@@ -1,0 +1,27 @@
+{
+  "name": "fetch-heliumpkg-info",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "ZEPL",
+  "license": "AGPL-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZEPL/fetch-heliumPkg-info.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZEPL/fetch-heliumPkg-info/issues"
+  },
+  "homepage": "https://github.com/ZEPL/fetch-heliumPkg-info#readme",
+  "dependencies": {
+    "aws-sdk": "^2.7.25",
+    "json-stringify-pretty-compact": "^1.0.2",
+    "npm-pkg-searchby-dependency": "0.0.2",
+    "npm-registry-client": "^7.0.9",
+    "prttty": "^0.9.1",
+    "silent-npm-registry-client": "^2.0.0"
+  }
+}

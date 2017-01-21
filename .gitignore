@@ -1,0 +1,8 @@
+.idea/
+build/
+node_modules/
+
+.env
+context.json
+deploy.env
+event.json
