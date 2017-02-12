@@ -1,27 +1,35 @@
 {
-  "name": "fetch-heliumpkg-info",
+  "name": "helium-package-registry",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "create": "node test/testCreateHeliumPkgFile.js",
+    "fetch": "node test/testFetchHeliumPkgInfo.js",
+    "maven": "node test/testGetMavenArtifactInfo.js"
   },
   "author": "ZEPL",
   "license": "AGPL-1.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZEPL/fetch-heliumPkg-info.git"
+    "url": "git+https://github.com/ZEPL/helium-package-registry.git"
   },
   "bugs": {
-    "url": "https://github.com/ZEPL/fetch-heliumPkg-info/issues"
+    "url": "https://github.com/ZEPL/helium-package-registry/issues"
   },
-  "homepage": "https://github.com/ZEPL/fetch-heliumPkg-info#readme",
+  "homepage": "https://github.com/ZEPL/helium-package-registry#readme",
   "dependencies": {
     "aws-sdk": "^2.7.25",
+    "bluebird": "^3.4.7",
     "json-stringify-pretty-compact": "^1.0.2",
-    "npm-pkg-searchby-dependency": "0.0.2",
+    "moment": "^2.17.1",
+    "npm-pkg-searchby-dependency": "0.0.7",
     "npm-registry-client": "^7.0.9",
     "prttty": "^0.9.1",
-    "silent-npm-registry-client": "^2.0.0"
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
+    "s3-append": "^1.1.0",
+    "silent-npm-registry-client": "^2.0.0",
+    "underscore": "^1.8.3",
+    "xml2js": "^0.4.17"
   }
 }
