@@ -10,6 +10,7 @@ var containerId = Date.now().toString().slice(-6)
 exports.handler = (event, context, callback) => {
   checkPreviousContainerId()
     .then(function (previousContainerId) {
+      console.log("Running at Lambda container " + containerId)
       if(previousContainerId !== containerId) {
         return removeContentInTmp()
       } else {
@@ -19,7 +20,7 @@ exports.handler = (event, context, callback) => {
     })
     .delay(3000)
     .then(function(){
-      console.log('Will take less than 10 sec to integrate whole package info in ' + containerId + " Lambda container...")
+      console.log("Will take less than 10 sec to integrate whole package info ...")
       return pushPkgInfoToTmp()
     })
     .delay(8000)
