@@ -5,3 +5,5 @@ node_modules/
 .env
 context.json
 deploy.env
+
+test/test*.js
