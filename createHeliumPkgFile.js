@@ -1,7 +1,7 @@
-var removeContentInTmp = require('./lib/removeContentInTmp')
-var pushPkgInfoToTmp = require('./lib/pushPkgInfoToTmp')
-var getFinalContent = require('./lib/getFinalContent')
-var createFinalHeliumFile = require('./lib/createFinalHeliumFile')
+var removeContentInTmp = require('./lib/createHeliumPkgFile/removeContentInTmp')
+var pushPkgInfoToTmp = require('./lib/createHeliumPkgFile/pushPkgInfoToTmp')
+var getFinalContent = require('./lib/createHeliumPkgFile/getFinalContent')
+var createFinalHeliumFile = require('./lib/createHeliumPkgFile/createFinalHeliumFile')
 
 // need to check whether Lambda container is being reused or not using its containerID
 var containerId = Date.now().toString().slice(-6)

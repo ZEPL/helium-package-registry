@@ -1,7 +1,7 @@
 var Promise = require('bluebird')
 
 var npmPkgSearchByDependency = require('npm-pkg-searchby-dependency')
-var getPkgInfoFromNPMRegistry = require('./lib/getPkgInfoFromNPMRegistry')
+var getPkgInfoFromNPMRegistry = require('./lib/fetchHeliumPkgInfo/getPkgInfoFromNPMRegistry')
 
 const depList = [
   "zeppelin-vis",
