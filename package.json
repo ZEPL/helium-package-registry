@@ -2,11 +2,6 @@
   "name": "helium-package-registry",
   "version": "0.0.1",
   "description": "",
-  "scripts": {
-    "create": "node test/testCreateHeliumPkgFile.js",
-    "fetch": "node test/testFetchHeliumPkgInfo.js",
-    "maven": "node test/testGetMavenArtifactInfo.js"
-  },
   "author": "ZEPL",
   "license": "AGPL-1.0",
   "repository": {
