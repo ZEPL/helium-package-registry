@@ -144,11 +144,11 @@ function parseXmlToJson(responseList) {
         .then(function (result) {
           var projectDeps = result.project.dependencies
           var projectDepManages = result.project.dependencyManagement
-          var name = result.project.name
+          var name = result.project.artifactId
           var groupId = result.project.groupId ? result.project.groupId : result.project.parent.groupId
           var artifactId = result.project.artifactId
           var version = result.project.version ? result.project.version : result.project.parent.version
-          var description = result.project.description ? result.project.description : name
+          var description = result.project.description ? result.project.description : result.project.name
           var published = ver.published
 
           var dependencies
