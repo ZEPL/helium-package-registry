@@ -179,7 +179,7 @@ function parseXmlToJson(responseList) {
 function filterWithGivenArtifact(bodyList) {
   return _.map(bodyList, function (version) {
 
-    return Promise.all(_.map(version, function (dep) {
+    return Promise.all(_.map(version, function (dep, index) {
       const type = 'INTERPRETER'
       const license = 'Apache-2.0'
       const icon = '<i class=\"fa fa-rocket\"></i>'
@@ -187,8 +187,8 @@ function filterWithGivenArtifact(bodyList) {
       var name = dep.name
       var groupId = dep.groupId
       var artifactId = dep.artifactId
-      var version = dep.version
-      var artifact = artifactId + '@' + version
+      var version = (index == 0) ? 'latest' : dep.version
+      var artifact = artifactId + '@' + dep.version
       var description = dep.description? dep.description : name
       var published = dep.published
 
@@ -214,6 +214,13 @@ function filterWithGivenArtifact(bodyList) {
     }))
       .then(function (result) {
         var resultByVersion = _.indexBy(_.omit(result, _.isUndefined), 'version')
+        for (key in resultByVersion) {
+          var obj = resultByVersion[key]
+          if (obj.version == 'latest') {
+            obj.version = obj.artifact.split('@')[1]
+          }
+        }
+
         finalArtifactList.push(resultByVersion)
       })
   })
