@@ -168,11 +168,11 @@ function parseXmlToJson(responseList) {
             dependencies: dependencies
           }
           return eachVerBodyList
-      })
+        })
     }))
-    .then(function (result) {
-      bodyList.push(result)
-    })
+      .then(function (result) {
+        bodyList.push(result)
+      })
   })
 }
 
@@ -210,7 +210,7 @@ function filterWithGivenArtifact(bodyList) {
           artifactId: artifactId
         }
           :
-        undefined
+          undefined
     }))
       .then(function (result) {
         var resultByVersion = _.indexBy(_.omit(result, _.isUndefined), 'version')
@@ -255,38 +255,43 @@ function createEachPkgInfoFile(body, artifactId) {
 }
 
 var uri = 'http://search.maven.org/solrsearch/select?q=zeppelin&rows=100'
-searchOnlyZeppelinRelatedArtifact(uri)
-  .delay(2000)
-  .then(function (result) {
-    return getAllVersionInfo(result)
-  })
-  .delay(3000)
-  .then(function () {
-    return getEachPomFileContent(pomUriList)
-  })
-  .delay(3000)
-  .then(function () {
-    return parseXmlToJson(responseList)
-  })
-  .delay(3000)
-  .then(function () {
-    return filterWithGivenArtifact(bodyList)
-  })
-  .delay(3000)
-  .then(function () {
-    _.map(finalArtifactList, function (artifact) {
-      if(!_.isEmpty(artifact)) {
-        for (key in artifact) {
-          var artifactId = artifact[key].artifactId
-        }
-        var body = {}
-        body[artifactId] = artifact
-        body = stringify(body)
-
-        createEachPkgInfoFile(body, artifactId)
-      }
+exports.handler = (event, context, callback) => {
+  searchOnlyZeppelinRelatedArtifact(uri)
+    .delay(2000)
+    .then(function (result) {
+      return getAllVersionInfo(result)
     })
-  })
-  .catch(function (error) {
-    console.error(error.message)
-  })
+    .delay(3000)
+    .then(function () {
+      return getEachPomFileContent(pomUriList)
+    })
+    .delay(3000)
+    .then(function () {
+      return parseXmlToJson(responseList)
+    })
+    .delay(3000)
+    .then(function () {
+      return filterWithGivenArtifact(bodyList)
+    })
+    .delay(3000)
+    .then(function () {
+      _.map(finalArtifactList, function (artifact) {
+        if(!_.isEmpty(artifact)) {
+          for (key in artifact) {
+            var artifactId = artifact[key].artifactId
+          }
+          var body = {}
+          body[artifactId] = artifact
+          body = stringify(body)
+
+          createEachPkgInfoFile(body, artifactId)
+        }
+      })
+    })
+    .then(function () {
+      return callback(null, "Done")
+    })
+    .catch(function (error) {
+      console.error(error.message)
+    })
+}
