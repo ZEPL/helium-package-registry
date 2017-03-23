@@ -7,7 +7,7 @@ This repository contains
  - [createHeliumPkgFile](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/createHeliumPkgFile)
  - [getMavenArtifactInfo](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/getMavenArtifactInfo)
  
-[AWS Lambda functions](https://aws.amazon.com/lambda/)) source code. The overall workflow is described in [Helium Online Repository - Work Flow GSlide](https://docs.google.com/a/zepl.com/presentation/d/1xUArdKJQAQFNbr7Atpgt-9waSm75IxgrmjLnh-UHYeo/edit?usp=sharing).
+[AWS Lambda functions](https://aws.amazon.com/lambda/)' source code. The overall workflow is described in [Helium Online Repository - Work Flow GSlide](https://docs.google.com/a/zepl.com/presentation/d/1xUArdKJQAQFNbr7Atpgt-9waSm75IxgrmjLnh-UHYeo/edit?usp=sharing).
 
 ### What are these function for?
 Using [npm-pkg-searchby-dependency](https://www.npmjs.com/package/npm-pkg-searchby-dependency), filter npm packages that have `zeppelin-vis`(for VISUALIZATION type pkg) or `zeppelin-spell`(for SPELL type pkg) as its dependency from [npm registry](http://registry.npmjs.org/).
