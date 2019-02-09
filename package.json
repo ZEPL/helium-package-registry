@@ -17,7 +17,7 @@
     "bluebird": "^3.4.7",
     "json-stringify-pretty-compact": "^1.0.2",
     "moment": "^2.17.1",
-    "npm-pkg-searchby-dependency": "0.0.8",
+    "npm-pkg-searchby-dependency": "0.0.9",
     "npm-registry-client": "^7.0.9",
     "prttty": "^0.9.1",
     "request": "^2.79.0",
